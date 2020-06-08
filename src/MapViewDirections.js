@@ -104,7 +104,7 @@ class MapViewDirections extends Component {
 		}
 
 		const timePrecisionString = timePrecision==='none' ? '' : timePrecision;
-		
+
 		// Routes array which we'll be filling.
 		// We'll perform a Directions API Request for reach route
 		const routes = [];
@@ -114,8 +114,8 @@ class MapViewDirections extends Component {
 		if (splitWaypoints && initialWaypoints && initialWaypoints.length > WAYPOINT_LIMIT) {
 			// Split up waypoints in chunks with chunksize WAYPOINT_LIMIT
 			const chunckedWaypoints = initialWaypoints.reduce((accumulator, waypoint, index) => {
-				const numChunk = Math.floor(index / WAYPOINT_LIMIT); 
-				accumulator[numChunk] = [].concat((accumulator[numChunk] || []), waypoint); 
+				const numChunk = Math.floor(index / WAYPOINT_LIMIT);
+				accumulator[numChunk] = [].concat((accumulator[numChunk] || []), waypoint);
 				return accumulator;
 			}, []);
 
@@ -130,7 +130,7 @@ class MapViewDirections extends Component {
 				});
 			}
 		}
-		
+
 		// No splitting of the waypoints is requested/needed.
 		// ~> Use one single route
 		else {
@@ -271,6 +271,7 @@ class MapViewDirections extends Component {
 						),
 						fare: route.fare,
 						waypointOrder: route.waypoint_order,
+						summary: route.summary,
 					});
 
 				} else {
